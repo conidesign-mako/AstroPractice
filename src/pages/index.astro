@@ -1,16 +1,184 @@
 ---
-
+// ここはフロントマター（今は空でOK）
 ---
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ConiDesign | カニデザイン</title>
+  <meta name="description" content="高知・南国市のブックカフェ発、グラフィック＆ウェブデザイン。" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: rgb(30, 33, 40);
+      --fg: #e9ecf1;
+      --muted: #9aa3af;
+      --brand: #ff4d4d; /* ketchup */
+      --brand2: #f5c542; /* mustard */
+      --card: rgba(255,255,255,0.06);
+      --radius: 18px;
+      --maxw: 880px;
+      --pad: 24px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(255,77,77,.15), transparent 60%),
+                  radial-gradient(1000px 700px at -10% 110%, rgba(245,197,66,.12), transparent 60%),
+                  var(--bg);
+      color:var(--fg);
+      scroll-behavior:smooth;
+    }
+    a{color:var(--brand)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+    header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    .btn{display:inline-flex;gap:.6em;align-items:center;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.6em 1.1em;text-decoration:none;color:inherit}
+    .btn:hover{border-color:rgba(255,255,255,.35)}
+    .hero{padding:84px 0 48px}
+    .hero h1{font-size:clamp(36px,6vw,64px);line-height:1.1;margin:0 0 .2em}
+    .hero p{font-size:clamp(16px,2.1vw,22px);color:var(--muted);max-width:60ch}
+    .hero-cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .cta-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;border:0}
+    .section{padding:72px 0}
+    .kard{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px}
+    h2{font-size:clamp(24px,3.5vw,36px);margin:0 0 .4em}
+    h3{font-size:20px;margin:0 0 .4em}
+    .grid{display:grid;gap:18px}
+    @media(min-width:720px){.cols-3{grid-template-columns:repeat(3,1fr)}}
+    footer{padding:48px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--muted)}
+    /* reveal animation */
+    [data-animate]{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+    [data-animate].in{opacity:1;transform:none}
+    [data-animate=\"left\"]{transform:translateX(-18px)}
+    [data-animate=\"right\"]{transform:translateX(18px)}
+    [data-delay=\"1\"]{transition-delay:.1s}
+    [data-delay=\"2\"]{transition-delay:.2s}
+    [data-delay=\"3\"]{transition-delay:.3s}
+    @media(prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <strong>Coni<b style="color:var(--brand)">Design</b></strong>
+      <nav>
+        <a class="btn" href="#works">Works</a>
+        <a class="btn" href="#about">About</a>
+        <a class="btn cta-primary" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <main>
+    <section class="hero wrap">
+      <h1 data-animate="up">カラフルでにぎやかなデザイン</h1>
+      <p data-animate="up" data-delay="2">高知県南国市から発信中。</p>
+      <div class="hero-cta" data-animate="fade" data-delay="3">
+        <a class="btn cta-primary" href="#contact">相談してみる</a>
+        <a class="btn" href="#works">制作実績を見る</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 id="services" data-animate="up">できること</h2>
+        <div class="grid cols-3">
+          <article class="kard" data-animate="up"><h3>ロゴ / VI</h3><p>ブランドの個性を言語化し、最小限の形に落とし込む。</p></article>
+          <article class="kard" data-animate="up" data-delay="1"><h3>印刷物</h3><p>ショップカード、フライヤー、ZINEなど。紙の手ざわりも含めて提案。</p></article>
+          <article class="kard" data-animate="up" data-delay="2"><h3>ウェブサイト</h3><p>軽くて速い静的サイトを軸に、更新しやすさまで設計します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="works">
+      <div class="wrap">
+        <h2 data-animate="up">制作実績</h2>
+        <div class="grid">
+          <article class="kard" data-animate="right"><h3>books&coffee an</h3><p>ショップサイト。1カラム、写真主導のレイアウト。</p></article>
+          <article class="kard" data-animate="right" data-delay="1"><h3>イベントフライヤー</h3><p>RISO印刷と特色を使った限定配布物。</p></article>
+          <article class="kard" data-animate="right" data-delay="2"><h3>地域プロジェクトロゴ</h3><p>南国市のローカル企画のアイデンティティ開発。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 data-animate="up">About</h2>
+        <div class="kard" data-animate="up">
+          <p>ConiDesign（まこ）は南国市在住のグラフィックデザイナー。Adobe Photoshop / Illustratorを中心に、写真・紙・ウェブを横断して企画から制作まで伴走します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2 data-animate="up">お問い合わせ</h2>
+        <div class="kard" data-animate="up">
+          <p style="margin:0;opacity:.7">
+			<form action="https://formspree.io/f/mdkwjagq" method="POST"
+				class="form kard" data-animate="up" autocomplete="on" novalidate>
+			<!-- spam対策（見えない罠） -->
+			<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+
+			<!-- メタ -->
+			<input type="hidden" name="_subject" value="ConiDesign からお問い合わせ" />
+			<!-- 送信後のサンクスページを用意するなら ↓ を使う（/thanks.html など） -->
+			<!-- <input type="hidden" name="redirect" value="/thanks.html" /> -->
+
+			<div class="grid-2">
+				<label class="field">
+				<span>お名前</span>
+				<input type="text" name="name" placeholder="山田 太郎" required />
+				</label>
+
+				<label class="field">
+				<span>メールアドレス</span>
+				<input type="email" name="_replyto" placeholder="taro@example.com" required />
+				</label>
+
+				<label class="field col-2">
+				<span>件名（任意）</span>
+				<input type="text" name="subject" placeholder="ご相談の件名" />
+				</label>
+
+				<label class="field col-2">
+				<span>メッセージ</span>
+				<textarea name="message" rows="6" placeholder="ご相談内容をできる範囲でお書きください。" required></textarea>
+				</label>
+			</div>
+
+			<div class="actions">
+				<button type="submit" class="btn cta-primary">送信する</button>
+			</div>
+			<p class="hint">送信いただいた個人情報は返信目的以外に使用しません。</p>
+			</form>
+
+		  </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small>© <span id="year"></span> ConiDesign — Nankoku, Kochi</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce && 'IntersectionObserver' in window){
+      const io = new IntersectionObserver((es)=>{
+        es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+      }, {rootMargin:'0px 0px -10% 0px', threshold:0.1});
+      document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+    }else{
+      document.querySelectorAll('[data-animate]').forEach(el=>el.classList.add('in'));
+    }
+  </script>
+</body>
 </html>
