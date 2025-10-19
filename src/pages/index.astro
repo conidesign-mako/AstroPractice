@@ -169,7 +169,7 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year')?.append(String(new Date().getFullYear()));
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduce && 'IntersectionObserver' in window){
       const io = new IntersectionObserver((es)=>{
